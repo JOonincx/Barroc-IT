@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{URL::asset('css/stylesheet.css')}} ">
 </head>
 <body>
+
+    @yield('header')
+
     @yield('content')
 <footer>
 
