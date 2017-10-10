@@ -4,6 +4,27 @@
     Clients
 @endsection
 
+@section('header')
+    <header>
+        <div class="jumbo">
+            <div class="wrapper">
+                <nav>
+                    <ul>
+                        <li><a href="{{ redirect('/logout') }}">Logout</a></li>
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
+                        <li><a href="#">Project list</a></li>
+                        @endif
+                        <!-- Sales -->
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                        <li><a href="#">Client list</a></li>
+                        @endif
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+@endsection
+
 @section('content')
     <div class="jumbo">
         <div class="wrapper">
@@ -31,7 +52,7 @@
                     @foreach($clients as $client)
                     <li class="clientbox">
                         <div class="customername">
-                            <p>{{ $client['company_name'] }}</p>
+                            <p>{{ $client['contact_person'] }}</p>
                         </div>
                         <div class="companyName">
                             <p>{{ $client['company_name'] }}</p>
@@ -44,5 +65,6 @@
                 </ul>
             </div>
         </div>
-
+        <link rel="javascript" href="{{URL::asset('js/searchFilters')}}">
+    </div>
 @endsection
