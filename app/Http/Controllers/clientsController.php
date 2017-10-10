@@ -18,7 +18,9 @@ class clientsController extends Controller
      */
     public function index()
     {
-
+        $clients = \App\Client::all();
+        return view('customers/clients')
+            ->with('clients', $clients);
     }
 
     /**

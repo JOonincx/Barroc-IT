@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{{URL::asset('css/stylesheet.css')}} ">
 </head>
 <body>
-    <div class="jumbo">
-        @yield('content')
-    </div>
+    @yield('content')
+<footer>
+
+</footer>
 </body>
 </html>

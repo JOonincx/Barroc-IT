@@ -21,7 +21,7 @@
                     <script src="{{ URL::asset('js/searchFilters.js') }}"></script>
                     <input type="text" id="clientSearch" onkeyup="clientSearch()" placeholder="Search for client..">
                     <div class="clientbutton">
-                        @if(Auth::name() == "Sales")
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == "Sales")
                         <a href="{{ action('clientsController@create') }}">Add client</a>
                         @endif
                     </div>
