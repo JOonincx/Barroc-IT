@@ -17,6 +17,7 @@ li{
 }
 .jumbo{
     background: #f2f2f2;
+    height: 100%;
 }
 .hidden{
     display: none;
