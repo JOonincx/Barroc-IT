@@ -10,13 +10,13 @@
             <div class="wrapper">
                 <nav>
                     <ul>
-                        <li><a href="{{ redirect('/logout') }}">Logout</a></li>
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
-                        <li><a href="#">Project list</a></li>
+                            <li><a href="{{ action('projectsController@index') }}">Project list</a></li>
                         @endif
-                        <!-- Sales -->
+                    <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
-                        <li><a href="#">Client list</a></li>
+                            <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
                         @endif
                     </ul>
                 </nav>

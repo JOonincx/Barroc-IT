@@ -13,18 +13,19 @@ class pagesController extends Controller
     }
 
     public function Home(){
-        if(Auth::guest()){
-            return view('auth/login');
+        return view('auth/login');
+    }
+
+    public function CheckHome(){
+        if (Auth::user()['username'] == "Sales" || Auth::user()['username'] == "Finance"){
+            return redirect('/clients');
+        }else if(Auth::user()['username'] == "Development"){
+            return redirect('/projects');
         }else{
-            if (Auth::user()['username'] == "Sales"){
-                return redirect('/clients');
-            }else if(Auth::user()['username'] == "Finance"){
-                return redirect('/clients');
-            }else if(Auth::user()['username'] == "Development"){
-                return redirect('/projects');
-            }
+            return redirect('/logout');
         }
     }
+
 
     public function Login(){
         return view('auth/login');

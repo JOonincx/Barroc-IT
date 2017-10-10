@@ -13,6 +13,7 @@
 
 Route::get('', 'pagesController@home');
 Route::get('home', 'pagesController@home');
+Route::get('checkhome', 'pagesController@checkhome');
 Route::get('login', 'pagesController@login');
 Route::get('logout', 'pagesController@logout');
 Route::resource('clients', 'clientsController');

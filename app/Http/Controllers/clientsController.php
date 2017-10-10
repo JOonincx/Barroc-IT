@@ -43,19 +43,33 @@ class clientsController extends Controller
     {
 
         $this->validate($request, [
-            'name' => 'required|string|min:6',
-            'description' => 'required|string|min:50',
-            'deadline'  => 'date|required'
+            'companyNames'      => 'required|string|min:6',
+            'address'            => 'required|string',
+            'housenumber'       => 'int|required',
+            'zipcode'           => 'string|required',
+            'residence'         => 'string|required',
+            'contactperson'     => 'string|required',
+            'telephonenumber'   => 'string|required',
+            'faxnumber'         => 'string',
+            'email'             => 'email|required',
         ]);
 
-        $project = new \App\Project();
-        $project->name = $request->name;
-        $project->description = $request->description;
-        $project->deadline = $request->deadline;
-        $project->completed = 0;
-        $project->save();
-
-        return redirect('customers');
+        $client = new \App\Client();
+        $client->company_name = $request->companyNames;
+        $client->Address1 = $request->adress;
+        $client->Postcode1 = $request->zipcode;
+        $client->Residence1 = $request->residence;
+        $client->contact_person = $request->contactperson;
+        $client->telephone_number1 = $request->telephonenumber;
+        $client->Fax_number = $request->faxnumber;
+        $client->email= $request->email;
+        if($request->prospect == "Yes"){
+            $client->prospect = 1;
+        }else{
+            $client->prospect = 0;
+        }
+        $client->save();
+        return redirect('clients');
     }
 
     /**
