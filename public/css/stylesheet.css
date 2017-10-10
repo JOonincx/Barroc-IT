@@ -7,6 +7,10 @@
 }
 html{
     background: #FFFFFF;
+    height: 100%;
+}
+body{
+    height: 100%;
 }
 li{
     list-style-type: none;
@@ -117,7 +121,7 @@ nav ul li a:hover{
 }
 .form-control{
     display: block;
-    width: 100%;
+    width: 95%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -137,7 +141,6 @@ input.form-control{
     border-radius: 0px;
     border-color: #CFC1B5;
     box-shadow: 1px 1px 2px black;
-    padding: 20px 10px;
 }
 #login{
     background: #CFC1B5;
