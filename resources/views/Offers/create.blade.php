@@ -8,7 +8,15 @@
 </div>
 <div class="wrapper">
     <div class="addclientbox">
-        <form action="#" method="post" id="createOffer">
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+        <form action="/offers" method="post" id="createOffer">
+            {{csrf_field()}}
             <div class="form-group">
                 <label for="bankaccountNumber">Bankaccount number</label>
                 <input type="text" id="bankaccountNumber" required>
@@ -18,12 +26,12 @@
                 <input type="text" id="balance" required>
             </div>
             <div class="form-group">
-                <label for="ledgerAccount">Ledger account</label>
-                <input type="text" id="ledgerAccount">
+                <label for="balance">Sales percentage</label>
+                <input type="text" id="sales_percentage" required>
             </div>
             <div class="form-group">
-                <label for="btw">BTW-code</label>
-                <input type="text" id="btw" required>
+                <label for="ledgerAccount">Ledger account</label>
+                <input type="text" id="ledgerAccount">
             </div>
             <input type="submit" id="submit" value="Create offer">
         </form>

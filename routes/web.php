@@ -20,7 +20,4 @@ Route::resource('offers', 'offersController');
 
 Auth::routes();
 
-
-
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/offers', 'offersController');
+Route::get('/home', 'HomeController@index')->name('home');
