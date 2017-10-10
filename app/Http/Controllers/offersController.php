@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class offersController extends Controller
 {
-    //
+    public function create()
+    {
+        return view('Offers/create');
+    }
 }
