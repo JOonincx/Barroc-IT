@@ -8,7 +8,15 @@
 </div>
 <div class="wrapper">
     <div class="addclientbox">
-        <form action="#" method="post" id="createOffer">
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+        <form action="/offers" method="post" id="createOffer">
+            {{csrf_field()}}
             <div class="form-group">
                 <label for="bankaccountNumber">Bankaccount number</label>
                 <input type="text" id="bankaccountNumber" required>
