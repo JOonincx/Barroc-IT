@@ -31,10 +31,10 @@
                     @foreach($clients as $client)
                     <li class="clientbox">
                         <div class="customername">
-                            <p>{{ $client['customerName'] }}</p>
+                            <p>{{ $client['company_name'] }}</p>
                         </div>
                         <div class="companyName">
-                            <p>{{ $client['companyName'] }}</p>
+                            <p>{{ $client['company_name'] }}</p>
                         </div>
                         <div class="clientbutton">
                             <a href="{{ action('clientsController@show', $client['id']) }}"> Show details</a>
