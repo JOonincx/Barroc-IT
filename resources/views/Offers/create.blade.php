@@ -26,12 +26,12 @@
                 <input type="text" id="balance" required>
             </div>
             <div class="form-group">
-                <label for="ledgerAccount">Ledger account</label>
-                <input type="text" id="ledgerAccount">
+                <label for="balance">Sales percentage</label>
+                <input type="text" id="sales_percentage" required>
             </div>
             <div class="form-group">
-                <label for="btw">BTW-code</label>
-                <input type="text" id="btw" required>
+                <label for="ledgerAccount">Ledger account</label>
+                <input type="text" id="ledgerAccount">
             </div>
             <input type="submit" id="submit" value="Create offer">
         </form>
