@@ -66,8 +66,8 @@ class clientsController extends Controller
      */
     public function show($id)
     {
-        $clients = \App\Client::find($id);
-        return view('customers/clients')->with('clients', $clients);
+        $client = \App\Client::find($id);
+        return view('customers/client')->with('client', $client);
     }
 
     /**

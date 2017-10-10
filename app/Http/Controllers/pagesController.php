@@ -29,4 +29,9 @@ class pagesController extends Controller
     public function Login(){
         return view('auth/login');
     }
+
+    public function Logout(){
+        \Illuminate\Support\Facades\Auth::logout();
+        return redirect('/login');
+    }
 }
