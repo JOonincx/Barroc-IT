@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+Route::get('/', 'pagesController@home');
+Route::get('/home', 'pagesController@home');
+Route::get('login', 'pagesController@login');
 Route::resource('clients', 'clientsController');
 Route::resource('projects', 'projectsController');
 Route::resource('offers', 'offersController');
