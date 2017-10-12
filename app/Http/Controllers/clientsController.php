@@ -41,17 +41,16 @@ class clientsController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'companyNames'      => 'required|string|min:6',
-            'address'            => 'required|string',
-            'housenumber'       => 'int|required',
-            'zipcode'           => 'string|required',
-            'residence'         => 'string|required',
-            'contactperson'     => 'string|required',
-            'telephonenumber'   => 'string|required',
+            'address'           => 'required|string',
+            'zipcode'           => 'required',
+            'residence'         => 'required',
+            'contactperson'     => 'required',
+            'telephonenumber'   => 'required',
             'faxnumber'         => 'string',
             'email'             => 'email|required',
+            'prospect'          => 'required',
         ]);
 
         $client = new \App\Client();
@@ -61,15 +60,19 @@ class clientsController extends Controller
         $client->Residence1 = $request->residence;
         $client->contact_person = $request->contactperson;
         $client->telephone_number1 = $request->telephonenumber;
-        $client->Fax_number = $request->faxnumber;
+        if (isset($request->faxnumber)){
+            $client->Fax_number = $request->faxnumber;
+        }
         $client->email= $request->email;
-        if($request->prospect == "Yes"){
+        if($request->prospect == "yes"){
             $client->prospect = 1;
         }else{
             $client->prospect = 0;
         }
+
+        dd($client);
         $client->save();
-        return redirect('clients');
+        return back()->with('success', 'Succesfully added client');
     }
 
     /**

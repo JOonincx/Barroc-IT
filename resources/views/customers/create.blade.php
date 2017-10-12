@@ -28,6 +28,9 @@
 @section('content')
     <div class="title">
         <h1 id="ptitle">Add Client</h1>
+        @if ( session('success') )
+            <h1> {{session('success')}} </h1>
+        @endif
     </div>
     <div class="wrapper">
         <div class="addclientbox">
@@ -40,10 +43,6 @@
                 <div class="form-group">
                     <label for="address">Adress</label>
                     <input type="text" id="adress" required>
-                </div>
-                <div class="form-group">
-                    <label for="housenumber">Housenumber</label>
-                    <input type="number" id="housenumber" required>
                 </div>
                 <div class="form-group">
                     <label for="zipcode">Zipcode</label>

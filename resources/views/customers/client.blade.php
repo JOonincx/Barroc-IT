@@ -40,10 +40,6 @@
                 <p>{{ $client['Address1'] }}</p>
             </div>
             <div class="field">
-                <p>Housenumber:</p>
-                <p>{{ $client['housenumber'] }}</p>
-            </div>
-            <div class="field">
                 <p>Postcode (Zipcode):</p>
                 <p>{{ $client['Postcode1'] }}</p>
             </div>
