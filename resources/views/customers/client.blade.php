@@ -17,6 +17,7 @@
                     <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
+                            <li><a href="{{ action('projectsController@create') }}">Add Project</a></li>
                         @endif
                     </ul>
                 </nav>
