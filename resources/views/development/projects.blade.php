@@ -40,7 +40,7 @@
                     <input type="text" id="clientSearch" onkeyup="clientSearch()" placeholder="Search for client..">
                     <div class="projectbutton">
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == "Sales")
-                        <a href="{{ action('projecsController@create') }}">Add client</a>
+                        <a href="{{ action('projectsController@create') }}">Add project</a>
                         @endif
                     </div>
                 </div>

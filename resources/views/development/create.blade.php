@@ -14,10 +14,6 @@
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
                             <li><a href="{{ action('projectsController@index') }}">Project list</a></li>
                         @endif
-                    <!-- Sales -->
-                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
-                            <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
-                        @endif
                     </ul>
                 </nav>
             </div>
@@ -27,14 +23,14 @@
 
 @section('content')
     <div class="title">
-        <h1 id="ptitle">Add Client</h1>
+        <h1 id="ptitle">Add Project</h1>
         @if ( session('success') )
             <h1> {{session('success')}} </h1>
         @endif
     </div>
     <div class="wrapper">
         <div class="addclientbox">
-            <form action="{{ action('clientsController@store') }}" id="addClient" method="post">
+            <form action="{{ action('projectsController@store') }}" id="addClient" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="companyNames">Company name</label>
