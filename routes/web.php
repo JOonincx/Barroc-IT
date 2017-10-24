@@ -19,6 +19,7 @@ Route::get('logout', 'pagesController@logout');
 Route::resource('clients', 'clientsController');
 Route::resource('projects', 'projectsController');
 Route::resource('offers', 'offersController');
+Route::get('projects/create/{client_id}','projectsController@createProject');
 
 Auth::routes();
 

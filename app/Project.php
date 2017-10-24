@@ -10,4 +10,8 @@ class Project extends Model
 
     //maakt hierdoor gebruik van de project_id inplaats van normale id
     protected $primaryKey = 'project_id';
+
+    public function user() {
+        return $this->belongsTo('\App\Client');
+    }
 }

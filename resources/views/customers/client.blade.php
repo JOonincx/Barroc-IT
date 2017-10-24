@@ -33,6 +33,10 @@
     <div class="wrapper">
         <div class="clientdetailpage">
             <div class="field">
+
+                <a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a>
+            </div>
+            <div class="field">
                 <p>Customername:</p>
                 <p>{{ $client['company_name'] }}</p>
             </div>
