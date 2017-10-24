@@ -24,49 +24,32 @@
 @section('content')
     <div class="title">
         <h1 id="ptitle">Add Project</h1>
-        @if ( session('success') )
-            <h1> {{session('success')}} </h1>
-        @endif
+
     </div>
     <div class="wrapper">
         <div class="addclientbox">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if ( session('success') )
+                <h1> {{session('success')}} </h1>
+            @endif
             <form action="{{ action('projectsController@store') }}" id="addClient" method="post">
                 {{ csrf_field() }}
+                <input type="hidden" name="client_id" value="{{$client_id}}">
                 <div class="form-group">
-                    <label for="companyNames">Company name</label>
-                    <input type="text" id="companyNames" required>
+                    <label for="project_name">Project name</label>
+                    <input type="text" name="project_name" required>
                 </div>
                 <div class="form-group">
-                    <label for="address">Adress</label>
-                    <input type="text" id="adress" required>
-                </div>
-                <div class="form-group">
-                    <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" required>
-                </div>
-                <div class="form-group">
-                    <label for="residence">Residence</label>
-                    <input type="text" id="residence" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactperson">Contact person</label>
-                    <input type="text" id="contactperson" required>
-                </div>
-                <div class="form-group">
-                    <label for="telephonenumber">Telephone number</label>
-                    <input type="text" id="telephonenumber" required>
-                </div>
-                <div class="form-group">
-                    <label for="faxnumber">Fax number</label>
-                    <input type="text" id="faxnumber">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="">Prospect</label>
-                    <select name="prospect" id="prospect" required>
+                    <label for="maintance">Mantainence contract</label>
+                    <select name="maintance" id="maintance" required>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
