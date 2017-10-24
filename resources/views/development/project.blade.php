@@ -16,7 +16,7 @@
                         @endif
                     <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
-                            <li><a href="{{ action('projectController@index') }}">project list</a></li>
+                            <li><a href="{{ action('projectsController@index') }}">project list</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -43,19 +43,7 @@
             <div class="customername"">
                 <p>Status:{{ $projects['offerte status'] }}</p>
             </div>
-            @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
-            <div class="field">
-                <p>Creditworthy:</p>
-            </div>
-            @endif
-            @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
-            <div class="field">
-                <p>Limit:</p>
-                <p>{{ $projects['limiet'] }}</p>
-            </div>
-            @endif
         </div>
-    </div>
 
 
 
