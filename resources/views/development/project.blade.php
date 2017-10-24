@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    projectpage
+    project page
 @endsection
 
 @section('header')
@@ -27,24 +27,38 @@
 
 @section('content')
     <div class="title">
-        <h1 class="ptitle">project {{ $projects['project_name'] }}</h1>
+        <h1 class="ptitle">project: {{ $projects['project_name'] }}</h1>
     </div>
     <div class="wrapper">
-        <div class="projectdetailpage">
-            <div class="customername">
-                <p>Project id:{{ $projects['project_id'] }}</p>
+        <div class="clientdetailpage">
+            <br>
+            <br>
+            <div class="field">
+                <p>Operating sysem:</p>
+                <p>{{ $projects['operating system'] }}</p>
             </div>
-            <div class="customername">
-                <p>Project name:{{ $projects['project_name'] }}</p>
-            </div>
-            <div class="customername">
-                <p>Client id:{{ $projects['client_id'] }}</p>
-            </div>
-            <div class="customername"">
-                <p>Status:{{ $projects['offerte status'] }}</p>
-            </div>
-        </div>
+                <div class="field">
+                    <p>Work status:</p>
+                    @if(true)
+                        <p>Keep on working</p>
+                    @else
+                        <p>Stop working</p>
+                    @endif
+                </div>
 
+            @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                <div class="field">
+                    <p>Creditworthy:</p>
+                </div>
+            @endif
+            @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                <div class="field">
+                    <p>Limit:</p>
+                    <p>{{ $client['limiet'] }}</p>
+                </div>
+            @endif
+            </div>
+    </div>
 
 
 @endsection

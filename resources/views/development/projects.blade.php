@@ -26,6 +26,7 @@
 @endsection
 
 @section('content')
+    MAAK QUERRY VOOR ALS SALDO HOGER IS DAN LIMIET DAN MOETEN DEVELOPERS ER AAN WERKEN ANDERS NIET
     <div class="jumbo">
         <div class="wrapper">
             <div class="client-list">
@@ -48,18 +49,27 @@
                 <ul id="projectlist">
                     @foreach($projects as $project)
                     <li class="projectbox">
-                        <div class="customername">
+                        <div class="projectname">
                             <p>Project id:{{ $project['project_id'] }}</p>
                         </div>
-                        <div class="companyName">
+                        <div class="projectname">
                             <p>Project name:{{ $project['project_name'] }}</p>
                         </div>
-                        <div class="companyName">
+                        <div class="projectname">
                             <p>Client id:{{ $project['client_id'] }}</p>
                         </div>
-                        <div class="companyName">
-                            <p>Status:{{ $project['offerte status'] }}</p>
+                        <div class="projectname">
+                            <p>Operating system:{{ $project['operating system'] }}</p>
                         </div>
+                        @if(true)
+                            <div class="projectstatusGood">
+                                <p>Work status: Keep on working</p>
+                            </div>
+                        @else
+                            <div class="projectstatusBad">
+                                <p>Work status: Stop working</p>
+                            </div>
+                        @endif
                         <div class="projectbutton">
                             <a href="{{ action('projectsController@show', $project['project_id']) }}"> Show details</a>
                         </div>

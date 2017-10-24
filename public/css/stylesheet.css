@@ -183,13 +183,21 @@ input.form-control{
 .projectbox li{
     width: 25%;
 }
-.projectstatus{
+.projectstatusGood{
     width: 25%;
+    color: lightgreen;
 }
+
+.projectstatusBad{
+    width: 25%;
+    color: red;
+}
+
+
 .customername{
     width: 25%;
 }
-.projectname{
+.project{
     width: 25%;
     margin-left: 10px;
 }
