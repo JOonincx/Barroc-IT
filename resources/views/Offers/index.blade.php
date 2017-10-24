@@ -45,12 +45,6 @@
                 <div class="Total">
                     <p>Total</p>
                 </div>
-                <div class="Limit">
-                    <p>Limit</p>
-                </div>
-                <div class="BTW">
-                    <p>BTW-code</p>
-                </div>
                 <div class="BKR">
                     <p>BKR check</p>
                 </div>
@@ -79,12 +73,6 @@
                             @else
                                 <p>{{$offer['total']}}</p>
                             @endif
-                        </div>
-                        <div class="limit">
-                            <p>{{$offer['limiet']}}</p>
-                        </div>
-                        <div class="BTW">
-                            <p>{{$offer['BTW']}}</p>
                         </div>
                         <div class="BKR">
                             <p>BKR</p>
