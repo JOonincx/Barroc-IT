@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     protected $table = 'tbl_offers';
+    protected $primaryKey = 'offerte_id';
 }
