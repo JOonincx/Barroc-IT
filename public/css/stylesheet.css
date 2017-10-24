@@ -389,6 +389,21 @@ input.form-control{
     text-shadow: 2px 2px 3px black;
     color: #CFC1B5;
 }
+.createOffer{
+    width: 10%;
+}
+.createOffer a{
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    background: gray;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.createOffer a:hover{
+    background-color: dimgray;
+    color: white;
+}
 .offerButton{
     width: 10%;
 }

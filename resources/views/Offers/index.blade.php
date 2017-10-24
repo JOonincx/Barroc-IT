@@ -37,10 +37,7 @@
                     <p>Bank number</p>
                 </div>
                 <div class="OfferAmount">
-                    <p>Offer amount</p>
-                </div>
-                <div class="SalesPercentage">
-                    <p>sales percentage</p>
+                    <p>Amount offers</p>
                 </div>
                 <div class="Total">
                     <p>Total</p>
@@ -48,37 +45,42 @@
                 <div class="BKR">
                     <p>BKR check</p>
                 </div>
-                <div class="offerButton">
-                </div>
             </div>
-
             <ul id="offerteList">
-                @foreach($offers as $offer)
+                @foreach($clients as $client)
                     <li class="offerteBox">
                         <div class="client_name">
-                            <p>{{$clients->find($offer->client_id)->company_name}}</p>
+                            <p>{{$client->company_name}}</p>
                         </div>
                         <div class="bankNumber">
-                            <p>{{ $offer['debiteurengegevens'] }}</p>
+                            @if(!$client->offers->isEmpty())
+                                <p>{{$client->offers[0]['debiteurengegevens']}}</p>
+                            @else
+                                <p>0</p>
+                            @endif
                         </div>
                         <div class="offerAmount">
-                            <p>{{$clients->find($offer->client_id)->count()}}</p>
-                        </div>
-                        <div class="salesPercentage">
-                            <p>{{ $offer['sales_percentage'] }}</p>
+                            <p>{{$client->offers->count()}}</p>
                         </div>
                         <div class="total">
-                            @if($offer['total'] == null)
-                                <p>0</p>
+                            @if(!$client->offers->isEmpty())
+                                <p>{{$client->offers->sum('saldo')}}</p>
                             @else
-                                <p>{{$offer['total']}}</p>
+                                <p>0</p>
                             @endif
                         </div>
                         <div class="BKR">
                             <p>BKR</p>
                         </div>
                         <div class="offerButton">
-                            <a href="{{ action('offersController@show', $offer['client_id']) }}"> Show details</a>
+                            @if(!$client->offers->isEmpty())
+                                <a href="{{ action('offersController@show', $client->offers[0]['client_id']) }}"> Show details</a>
+                            @else
+                                <p></p>
+                            @endif
+                        </div>
+                        <div class="createOffer">
+                            <a href="{{ action('offersController@create', $client['id']) }}"> Create offer</a>
                         </div>
                     </li>
                 @endforeach

@@ -17,6 +17,7 @@
         @endif
         <form action="/offers" method="post" id="createOffer">
             {{csrf_field()}}
+
             <div class="form-group">
                 <label for="bankaccountNumber">Bankaccount number</label>
                 <input type="text" id="bankaccountNumber" required>
