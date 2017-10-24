@@ -396,10 +396,6 @@ input.form-control{
     background-color: dimgray;
     color: white;
 }
-.offerte-list .BankNumber{
-    padding-left: 30px;
-    color:red;
-}
 /*offer page per client*/
 .clientname{
     text-align:center;
