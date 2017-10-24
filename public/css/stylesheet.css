@@ -354,3 +354,76 @@ input.form-control{
     width: 25%;
     text-align: center;
 }
+/* offerte list */
+.offertePageHeader{
+    font-weight: bold;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    background: white;
+}
+.offerteBox{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    background: white;
+}
+.offerte-list{
+    height: 100%;
+}
+.offerte-list h2{
+    font-size: 30px;
+    text-shadow: 2px 2px 3px black;
+    color: #CFC1B5;
+}
+.offerButton{
+    width: 10%;
+}
+.offerButton a{
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    background: gray;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.offerButton a:hover{
+    background-color: dimgray;
+    color: white;
+}
+.offerte-list .BankNumber{
+    padding-left: 30px;
+    color:red;
+}
+/*offer page per client*/
+.clientname{
+    text-align:center;
+    font-size: 30px;
+    text-shadow: 2px 2px 3px black;
+    color: #CFC1B5;
+}
+.offer table{
+    margin: 0 auto;
+    background-color:white;
+}
+.offer table, th, td{
+    border: 1px solid black;
+}
+.offer th, td{
+    padding-right: 20px;
+    text-align: center;
+}
+.offer td{
+    background-color: #e9e4e5;
+}
+.offer .offerButton{
+    width: 0;
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
