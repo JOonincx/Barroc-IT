@@ -48,14 +48,13 @@ class clientsController extends Controller
             'residence'         => 'required',
             'contactperson'     => 'required',
             'telephonenumber'   => 'required',
-            'faxnumber'         => 'string',
-            'email'             => 'email|required',
+            'email'             => 'required|email',
             'prospect'          => 'required',
         ]);
 
         $client = new \App\Client();
         $client->company_name = $request->companyNames;
-        $client->Address1 = $request->adress;
+        $client->Address1 = $request->address;
         $client->Postcode1 = $request->zipcode;
         $client->Residence1 = $request->residence;
         $client->contact_person = $request->contactperson;
@@ -69,8 +68,6 @@ class clientsController extends Controller
         }else{
             $client->prospect = 0;
         }
-
-        dd($client);
         $client->save();
         return back()->with('success', 'Succesfully added client');
     }
