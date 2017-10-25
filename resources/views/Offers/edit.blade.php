@@ -15,23 +15,25 @@
                     @endforeach
                 </ul>
             @endif
-            <form action="/offers/{{$offer['client_id']}}" method="put" id="createOffer">
+            <form action="/offers/{{$offer['offerte_id']}}" method="post" id="createOffer">
                 {{csrf_field()}}
+                {{ method_field('PUT') }}
+                <input type="hidden" name="client_id" value="{{$offer['client_id']}}">
                 <div class="form-group">
                     <label for="bankaccountNumber">Bankaccount number</label>
-                    <input type="text" id="bankaccountNumber" value="{{$offer->debiteurengegevens}}" required>
+                    <input type="text" name="bankaccountNumber" value="{{$offer->debiteurengegevens}}" required>
                 </div>
                 <div class="form-group">
                     <label for="balance">Saldo</label>
-                    <input type="text" id="balance" value="{{$offer->saldo}}"required>
+                    <input type="text" name="balance" value="{{$offer->saldo}}"required>
                 </div>
                 <div class="form-group">
-                    <label for="balance">Sales percentage</label>
-                    <input type="text" id="sales_percentage" value="{{$offer->sales_percentage}}" required>
+                    <label for="sales_percentage">Sales percentage</label>
+                    <input type="text" name="sales_percentage" value="{{$offer->sales_percentage}}" required>
                 </div>
                 <div class="form-group">
                     <label for="ledgerAccount">Ledger account</label>
-                    <input type="text" id="ledgerAccount" value="{{$offer->crediteurengegevens}}">
+                    <input type="text" name="ledgerAccount" value="{{$offer->crediteurengegevens}}">
                 </div>
                 <input type="submit" id="submit" value="Edit offer">
             </form>

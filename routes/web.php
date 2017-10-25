@@ -22,6 +22,8 @@ Route::resource('offers', 'offersController');
 Route::get('projects/create/{client_id}','projectsController@createProject');
 Route::get('offers/create/{client_id}','offersController@createOffer');
 
+Route::put('offers/{id}', 'offersController@update');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
