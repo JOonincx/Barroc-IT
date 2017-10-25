@@ -17,22 +17,22 @@
         @endif
         <form action="/offers" method="post" id="createOffer">
             {{csrf_field()}}
-
+            <input type="hidden" name="client_id" value="{{$client_id}}">
             <div class="form-group">
                 <label for="bankaccountNumber">Bankaccount number</label>
-                <input type="text" id="bankaccountNumber" required>
+                <input type="text" name="bankaccountNumber">
             </div>
             <div class="form-group">
                 <label for="balance">Saldo</label>
-                <input type="text" id="balance" required>
+                <input type="text" name="balance">
             </div>
             <div class="form-group">
                 <label for="balance">Sales percentage</label>
-                <input type="text" id="sales_percentage" required>
+                <input type="text" name="sales_percentage">
             </div>
             <div class="form-group">
                 <label for="ledgerAccount">Ledger account</label>
-                <input type="text" id="ledgerAccount">
+                <input type="text" name="ledgerAccount">
             </div>
             <input type="submit" id="submit" value="Create offer">
         </form>

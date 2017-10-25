@@ -372,6 +372,7 @@ input.form-control{
     height: 50px;
     align-items: center;
     background: white;
+    text-align: center;
 }
 .offerteBox{
     margin-top: 20px;
@@ -380,6 +381,7 @@ input.form-control{
     height: 50px;
     align-items: center;
     background: white;
+    text-align: center;
 }
 .offerte-list{
     height: 100%;
@@ -388,6 +390,9 @@ input.form-control{
     font-size: 30px;
     text-shadow: 2px 2px 3px black;
     color: #CFC1B5;
+}
+.client_name{
+    width: 10%;
 }
 .createOffer{
     width: 10%;
@@ -418,6 +423,12 @@ input.form-control{
 .offerButton a:hover{
     background-color: dimgray;
     color: white;
+}
+.details{
+    width:10%;
+}
+.create{
+    width: 10%;
 }
 /*offer page per client*/
 .clientname{

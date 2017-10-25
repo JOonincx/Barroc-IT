@@ -20,6 +20,7 @@ Route::resource('clients', 'clientsController');
 Route::resource('projects', 'projectsController');
 Route::resource('offers', 'offersController');
 Route::get('projects/create/{client_id}','projectsController@createProject');
+Route::get('offers/create/{client_id}','offersController@createOffer');
 
 Auth::routes();
 

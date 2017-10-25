@@ -45,6 +45,12 @@
                 <div class="BKR">
                     <p>BKR check</p>
                 </div>
+                <div class="details">
+
+                </div>
+                <div class="create">
+
+                </div>
             </div>
             <ul id="offerteList">
                 @foreach($clients as $client)
@@ -80,7 +86,7 @@
                             @endif
                         </div>
                         <div class="createOffer">
-                            <a href="{{ action('offersController@create', $client['id']) }}"> Create offer</a>
+                            <a href="{{ action('offersController@createOffer', $client['id']) }}"> Create offer</a>
                         </div>
                     </li>
                 @endforeach

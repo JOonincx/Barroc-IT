@@ -20,8 +20,10 @@ class offersController extends Controller
     }
     public function create()
     {
-        $clients = \App\Client::all();
-        return view('Offers/create')->with('clients', $clients);
+        return view('Offers/create');
+    }
+    public function createOffer($client_id){
+        return view('Offers/create')->with('client_id', $client_id);
     }
     public function edit($id)
     {
@@ -46,16 +48,15 @@ class offersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'client' => 'Required',
-            'bankaccountNumber' => 'Required|Numberic',
-            'balance' => 'Required|Numberic',
-            'ledgerAccount' => 'Required|String',
-            'sales_percentage' => 'Required|Numberic'
+            'bankaccountNumber' => 'Required',
+            'balance' => 'Required',
+            'ledgerAccount' => 'Required',
+            'sales_percentage' => 'Required'
         ]);
 
         $offer = new \App\Offer();
-        $offer->cliend_id = $request->client;
-        //$offer->creditworthy = $request->creditworthy;
+        $offer->client_id = $request->client_id;
+        $offer->creditworthy = 0;
         $offer->prospect = 0;
 
         $offer->offerte_status = 0;
@@ -64,7 +65,6 @@ class offersController extends Controller
         $offer->debiteurengegevens = $request->ledgerAccount;
         $offer->saldo = $request->balance;
         $offer->save();
-
         return redirect('offers');
     }
 }
