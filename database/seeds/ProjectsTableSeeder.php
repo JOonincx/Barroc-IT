@@ -13,5 +13,30 @@ class ProjectsTableSeeder extends Seeder
     {
         $faker = new \Faker\Factory();
 
+        for ($i = 1; $i < 51; $i++){
+            DB::table('tbl_projects')->insert([
+                'client_id'                 =>   $i,
+                'project_name'              =>  $faker->create()->name(),
+                'maintance'                 =>  true,
+                'operating_system'          =>  "windows",
+                'applications'              =>  "Testdata",
+            ]);
+            DB::table('tbl_projects')->insert([
+                'client_id'                 =>   $i,
+                'project_name'              =>  $faker->create()->name(),
+                'maintance'                 =>  true,
+                'operating_system'          =>  "windows",
+                'applications'              =>  "Testdata",
+            ]);
+        }
+        for ($i = 51; $i < 81; $i++){
+            DB::table('tbl_projects')->insert([
+                'client_id'                 =>   $i,
+                'project_name'              =>  $faker->create()->name(),
+                'maintance'                 =>  true,
+                'operating_system'          =>  "windows",
+                'applications'              =>  "Testdata",
+            ]);
+        }
     }
 }

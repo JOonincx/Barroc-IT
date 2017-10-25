@@ -21,11 +21,13 @@ class CreateClientsTable extends Migration
             $table->string('residence');
             $table->string('contact_person');
             $table->string('initials');
-            $table->string('telephone_number1');
+            $table->string('telephone_number');
             $table->string('faxnumber');
             $table->string('email');
             $table->integer('limit');
             $table->boolean('prospect');
+            $table->boolean('creditworthy');
+            $table->boolean('BKR');
             $table->timestamps();
         });
     }

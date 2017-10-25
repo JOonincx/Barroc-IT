@@ -19,7 +19,6 @@ class CreateOffersTable extends Migration
             $table->integer('project_id');
             $table->boolean('offer_status');
             $table->integer('sales_percentage');
-            $table->boolean('creditworthy');
             $table->string('crediteurgegevens');
             $table->string('debiteurgegevens');
             $table->integer('saldo');
