@@ -19,6 +19,8 @@
             {{csrf_field()}}
             <input type="hidden" name="client_id" value="{{$client_id}}">
             <div class="form-group">
+                <label for="project_id">Project id</label>
+                <input type="text" name="project_id">
                 <label for="bankaccountNumber">Bankaccount number</label>
                 <input type="text" name="bankaccountNumber">
             </div>

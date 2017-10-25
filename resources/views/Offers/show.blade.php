@@ -37,6 +37,7 @@
                 @if($client['id'] == $offer->client_id)
                     <table>
                         <tr>
+                            <th>Project_id</th>
                             <th>Offerte_id</th>
                             <th>Offerte_status</th>
                             <th>Sales_percentage</th>
@@ -46,6 +47,7 @@
                             <th>Saldo</th>
                         </tr>
                         <tr>
+                            <td>{{$offer['project_id']}}</td>
                             <td>{{$offer['offerte_id']}}</td>
                             <td>@if($offer['offerte_status'] == 1) Finished @elseif($offer['offerte_status'] == 0) Ongoing @endif</td>
                             <td>{{$offer['sales_percentage']}}</td>

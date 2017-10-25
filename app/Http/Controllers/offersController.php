@@ -61,6 +61,7 @@ class offersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'project_id' => 'Required|Numeric',
             'bankaccountNumber' => 'Required|Numeric',
             'balance' => 'Required|Numeric',
             'ledgerAccount' => 'Required|String',
@@ -69,6 +70,7 @@ class offersController extends Controller
 
         $offer = new \App\Offer();
         $offer->client_id = $request->client_id;
+        $offer->project_id = $request->project_id;
         $offer->creditworthy = 0;
 
         $offer->offerte_status = 0;
