@@ -17,7 +17,6 @@ li{
 }
 .jumbo{
     background: #f2f2f2;
-    height: 100%;
 }
 .hidden{
     display: none;
@@ -456,4 +455,7 @@ input.form-control{
     border: 0;
     background: transparent;
     padding: 0;
+}
+.clientdetailpage{
+    margin-left: 35%;
 }

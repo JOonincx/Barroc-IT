@@ -21,6 +21,9 @@
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
                         @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                            <li><a href="{{ action('offersController@index') }}">Offer list</a></li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -61,7 +64,7 @@
                             <p>{{ $client['company_name'] }}</p>
                         </div>
                         <div class="clientbutton">
-                            <a href="{{ action('clientsController@show', $client['id']) }}"> Show details</a>
+                            <a href="{{ action('clientsController@show', $client['client_id']) }}"> Show details</a>
                         </div>
                     </li>
                     @endforeach

@@ -32,15 +32,15 @@ class projectsController extends Controller
         if (isset($offers)){
             for ($i = 0; $i < count($offers); $i++){
                 for ($x = 0; $x < count($clients); $x++){
-                    if($offers['client_id'] == $clients['id']){
+                    if($offers[$i]['client_id'] == $clients[$x]['client_id']){
                         $clients[$x]['total'] = isset($clients[$x]['total']) ? $clients[$x]['total'] + $offers[$i]['saldo'] : $offers[$i]['saldo'];
                     }
                 }
             }
 
             for ($i = 0; $i < count($projects); $i++){
-                for ($x = 0; $i < count($clients); $i++){
-                    if ($projects[$i]['client_id'] == $clients[$x]['id']){
+                for ($x = 0; $x < count($clients); $x++){
+                    if ($projects[$i]['client_id'] == $clients[$x]['client_id']){
                         if($clients[$x]['total'] > $clients[$x]['limiet']){
                             $projects[$i]['shouldWork'] = false;
                         }else{
@@ -82,7 +82,7 @@ class projectsController extends Controller
             $project->maintance = 0;
         }
         $project->save();
-        return back()->with('success', 'Succesfully added client');
+        return back()->with('success', 'Succesfully added project');
     }
 
     public function createProject($client_id){

@@ -21,7 +21,7 @@
                 <input type="hidden" name="client_id" value="{{$offer['client_id']}}">
                 <div class="form-group">
                     <label for="bankaccountNumber">Bankaccount number</label>
-                    <input type="text" name="bankaccountNumber" value="{{$offer->debiteurengegevens}}" required>
+                    <input type="text" name="bankaccountNumber" value="{{$offer->debiteurgegevens}}" required>
                 </div>
                 <div class="form-group">
                     <label for="balance">Saldo</label>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ledgerAccount">Ledger account</label>
-                    <input type="text" name="ledgerAccount" value="{{$offer->crediteurengegevens}}">
+                    <input type="text" name="ledgerAccount" value="{{$offer->crediteurgegevens}}">
                 </div>
                 <input type="submit" id="submit" value="Edit offer">
             </form>

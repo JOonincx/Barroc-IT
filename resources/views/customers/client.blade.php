@@ -20,7 +20,10 @@
                     <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
-                            <li><a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a></li>
+                            <li><a href="{{URL::to('projects/create/'.$client['client_id'])}}">Add Project</a></li>
+                        @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                            <li><a href="{{ action('offersController@index') }}">Offer list</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -43,15 +46,15 @@
             </div>
             <div class="field">
                 <p>Adress:</p>
-                <p>{{ $client['Address1'] }}</p>
+                <p>{{ $client['adress'] }}</p>
             </div>
             <div class="field">
                 <p>Postcode (Zipcode):</p>
-                <p>{{ $client['Postcode1'] }}</p>
+                <p>{{ $client['postcode'] }}</p>
             </div>
             <div class="field">
                 <p>Residence:</p>
-                <p>{{ $client['Residence1'] }}</p>
+                <p>{{ $client['residence'] }}</p>
             </div>
             <div class="field">
                 <p>Contact person:</p>
@@ -59,29 +62,38 @@
             </div>
             <div class="field">
                 <p>Telephone number:</p>
-                <p>{{ $client['telephone_number1'] }}</p>
+                <p>{{ $client['telephone_number'] }}</p>
             </div>
             <div class="field">
                 <p>Faxnumber:</p>
-                <p>{{ $client['Fax_number'] }}</p>
+                <p>{{ $client['faxnumber'] }}</p>
             </div>
             <div class="field">
                 <p>E-mail:</p>
-                <p>{{ $client['e-mail'] }}</p>
+                <p>{{ $client['email'] }}</p>
             </div>
             <div class="field">
                 <p>Prospect:</p>
-                <p>{{ $client['prospect'] }}</p>
+                @if($client['prospect'] == "0")
+                    <p>No</p>
+                @else
+                    <p>Yes</p>
+                @endif
             </div>
             @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
             <div class="field">
                 <p>Creditworthy:</p>
+                @if($client['creditworthy'] == 0)
+                    <p>No</p>
+                @else
+                    <p>Yes</p>
+                @endif
             </div>
             @endif
             @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
             <div class="field">
                 <p>Limit:</p>
-                <p>{{ $client['limiet'] }}</p>
+                <p>{{ $client['limit'] }}</p>
             </div>
             @endif
         </div>

@@ -38,7 +38,7 @@
             <br>
             <div class="field">
                 <p>Operating sysem:</p>
-                <p>{{ $projects['operating system'] }}</p>
+                <p>{{ $projects['operating_system'] }}</p>
             </div>
                 <div class="field">
                     <p>Work status:</p>

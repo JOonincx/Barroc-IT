@@ -13,7 +13,7 @@ class clientsController extends Controller
 
         if(isset(Auth::user()['username'])){
             if(Auth::user()['username'] == 'Development'){
-                view('/checkhome');
+                redirect('/checkhome');
             }
         }
     }
@@ -61,13 +61,13 @@ class clientsController extends Controller
 
         $client = new \App\Client();
         $client->company_name = $request->companyNames;
-        $client->Address1 = $request->address;
-        $client->Postcode1 = $request->zipcode;
-        $client->Residence1 = $request->residence;
+        $client->adress = $request->address;
+        $client->postcode = $request->zipcode;
+        $client->residence = $request->residence;
         $client->contact_person = $request->contactperson;
-        $client->telephone_number1 = $request->telephonenumber;
+        $client->telephone_number = $request->telephonenumber;
         if (isset($request->faxnumber)){
-            $client->Fax_number = $request->faxnumber;
+            $client->faxnumber = $request->faxnumber;
         }
         $client->email= $request->email;
         if($request->prospect == "yes"){

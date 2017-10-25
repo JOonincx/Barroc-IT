@@ -29,7 +29,6 @@
 @endsection
 
 @section('content')
-    MAAK QUERRY VOOR ALS SALDO HOGER IS DAN LIMIET DAN MOETEN DEVELOPERS ER AAN WERKEN ANDERS NIET
     <div class="jumbo">
         <div class="wrapper">
             <div class="client-list">

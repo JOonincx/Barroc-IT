@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->integer('client_id');
             $table->string('project_name');
             $table->tinyInteger('maintance');
-            $table->string('operating_system');
-            $table->string('applications');
+            $table->string('operating_system')->nullable(true);
+            $table->string('applications')->nullable(true);
             $table->timestamps();
         });
     }

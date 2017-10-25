@@ -59,7 +59,7 @@
                         <option value="no">No</option>
                     </select>
                 </div>
-                <input type="submit" id="submit" value="Add client">
+                <input type="submit" id="submit" value="Add project">
             </form>
         </div>
     </div>
