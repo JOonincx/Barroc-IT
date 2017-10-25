@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Auth;
 
 class clientsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+
+        if(isset(Auth::user()['username'])){
+            if(Auth::user()['username'] == 'Development'){
+                view('/checkhome');
+            }
+        }
     }
 
     /**

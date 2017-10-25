@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class offersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        if(isset(Auth::user()['username'])){
+            if(Auth::user()['username'] == 'Sales' || Auth::user()['username'] == 'Development'){
+                redirect('/checkhome');
+            }
+        }
+    }
+
     public function index()
     {
         $offers = \App\Offer::all();

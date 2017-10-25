@@ -10,6 +10,9 @@
             <div class="wrapper">
                 <nav>
                     <ul>
+                        @if(isset(\Illuminate\Support\Facades\Auth::user()['username']))
+                            <li><p>{{\Illuminate\Support\Facades\Auth::user()['username']}}</p></li>
+                        @endif
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
                             <li><a href="{{ action('projectsController@index') }}">Project list</a></li>
@@ -17,7 +20,7 @@
                     <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
-                            <li><a href="{{ action('projectsController@create') }}">Add Project</a></li>
+                            <li><a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -33,8 +36,6 @@
     <div class="wrapper">
         <div class="clientdetailpage">
             <div class="field">
-
-                <a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a>
             </div>
             <div class="field">
                 <p>Customername:</p>
