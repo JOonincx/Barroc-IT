@@ -15,7 +15,7 @@
                     @endforeach
                 </ul>
             @endif
-            <form action="/offers/{{$offer['offerte_id']}}" method="post" id="createOffer">
+            <form action="/offers/{{$offer['offer_id']}}" method="post" id="createOffer">
                 {{csrf_field()}}
                 {{ method_field('PUT') }}
                 <input type="hidden" name="client_id" value="{{$offer['client_id']}}">

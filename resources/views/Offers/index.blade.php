@@ -66,7 +66,7 @@
                         </div>
                         <div class="bankNumber">
                             @if(!$client->offers->isEmpty())
-                                <p>{{$client->offers[0]['debiteurengegevens']}}</p>
+                                <p>{{$client->offers[0]['debiteurgegevens']}}</p>
                             @else
                                 <p>0</p>
                             @endif
@@ -92,7 +92,7 @@
                             @endif
                         </div>
                         <div class="createOffer">
-                            <a href="{{ action('offersController@createOffer', $client['id']) }}"> Create offer</a>
+                            <a href="{{ action('offersController@createOffer', $client['client_id']) }}"> Create offer</a>
                         </div>
                     </li>
                 @endforeach

@@ -34,29 +34,27 @@
             <h1 class="clientname">{{$client->company_name}}</h1>
             <div class="offer">
             @foreach($offers as $offer)
-                @if($client['id'] == $offer->client_id)
+                @if($client['client_id'] == $offer->client_id)
                     <table>
                         <tr>
                             <th>Project_id</th>
-                            <th>Offerte_id</th>
-                            <th>Offerte_status</th>
+                            <th>Offer_id</th>
+                            <th>Offer_status</th>
                             <th>Sales_percentage</th>
-                            <th>Creditworthy</th>
                             <th>Crediteurengegevens</th>
                             <th>Debiteurengegevens</th>
                             <th>Saldo</th>
                         </tr>
                         <tr>
                             <td>{{$offer['project_id']}}</td>
-                            <td>{{$offer['offerte_id']}}</td>
-                            <td>@if($offer['offerte_status'] == 1) Finished @elseif($offer['offerte_status'] == 0) Ongoing @endif</td>
+                            <td>{{$offer['offer_id']}}</td>
+                            <td>@if($offer['offer_status'] == 1) Finished @elseif($offer['offer_status'] == 0) Ongoing @endif</td>
                             <td>{{$offer['sales_percentage']}}</td>
-                            <td>@if($offer['creditworthy'] == 1) Yes @elseif($offer['creditworthy'] == 0) No @endif</td>
-                            <td>{{$offer['crediteurengegevens']}}</td>
-                            <td>{{$offer['debiteurengegevens']}}</td>
+                            <td>{{$offer['crediteurgegevens']}}</td>
+                            <td>{{$offer['debiteurgegevens']}}</td>
                             <td>{{$offer['saldo']}}</td>
                             <td class="offerButton">
-                                <a href="{{ action('offersController@edit',$offer['offerte_id']) }}"> Edit Offer</a>
+                                <a href="{{ action('offersController@edit',$offer['offer_id']) }}"> Edit Offer</a>
                             </td>
                         </tr>
                     <br>

@@ -52,8 +52,8 @@ class offersController extends Controller
         ]);
         $offer = \App\Offer::find($id);
         $offer->sales_percentage = $request->sales_percentage;
-        $offer->crediteurengegevens = $request->bankaccountNumber;
-        $offer->debiteurengegevens = $request->ledgerAccount;
+        $offer->crediteurgegevens = $request->bankaccountNumber;
+        $offer->debiteurgegevens = $request->ledgerAccount;
         $offer->saldo = $request->balance;
         $offer->save();
         return $this->show($offer['client_id']);
@@ -71,12 +71,11 @@ class offersController extends Controller
         $offer = new \App\Offer();
         $offer->client_id = $request->client_id;
         $offer->project_id = $request->project_id;
-        $offer->creditworthy = 0;
 
-        $offer->offerte_status = 0;
+        $offer->offer_status = 0;
         $offer->sales_percentage = $request->sales_percentage;
-        $offer->crediteurengegevens = $request->bankaccountNumber;
-        $offer->debiteurengegevens = $request->ledgerAccount;
+        $offer->crediteurgegevens = $request->bankaccountNumber;
+        $offer->debiteurgegevens = $request->ledgerAccount;
         $offer->saldo = $request->balance;
         $offer->save();
         return redirect('offers');
