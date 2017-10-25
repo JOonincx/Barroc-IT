@@ -17,7 +17,7 @@
                     <!-- Sales -->
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
-                            <li><a href="{{ action('projectsController@create') }}">Add Project</a></li>
+                            <li><a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -33,8 +33,6 @@
     <div class="wrapper">
         <div class="clientdetailpage">
             <div class="field">
-
-                <a href="{{URL::to('projects/create/'.$client['id'])}}">Add Project</a>
             </div>
             <div class="field">
                 <p>Customername:</p>

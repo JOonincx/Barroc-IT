@@ -9,6 +9,12 @@ class clientsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        if(isset(Auth::user()['username'])){
+            if(Auth::user()['username'] == 'Development'){
+                redirect('/checkhome');
+            }
+        }
     }
 
     /**

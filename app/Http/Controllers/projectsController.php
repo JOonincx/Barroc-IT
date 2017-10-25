@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Auth;
 
 class projectsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        if(isset(Auth::user()['username'])){
+            if(Auth::user()['username'] == 'Sales' || Auth::user()['username'] == 'Finance'){
+                redirect('/checkhome');
+            }
+        }
     }
 
     /**
@@ -20,6 +26,7 @@ class projectsController extends Controller
     public function index()
     {
         $projects = \App\Project::all();
+
         return view('development/projects')->with('projects', $projects);
     }
 
