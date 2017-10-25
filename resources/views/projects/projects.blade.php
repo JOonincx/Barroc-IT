@@ -68,7 +68,7 @@
                             <h3>Operating system:</h3>
                             <p>{{ $project['operating system'] }}</p>
                         </div>
-                        @if(true)
+                        @if($project['shouldWork'])
                             <div class="projectstatusGood">
                                 <h3>Work status: </h3>
                                 <p>Keep on working</p>

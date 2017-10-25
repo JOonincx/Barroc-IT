@@ -26,7 +26,31 @@ class projectsController extends Controller
     public function index()
     {
         $projects = \App\Project::all();
+        $clients = \App\Client::all();
+        $offers = \App\Offer::all();
 
+        if (isset($offers)){
+            for ($i = 0; $i < count($offers); $i++){
+                for ($x = 0; $x < count($clients); $x++){
+                    if($offers['client_id'] == $clients['id']){
+                        $clients[$x]['total'] = isset($clients[$x]['total']) ? $clients[$x]['total'] + $offers[$i]['saldo'] : $offers[$i]['saldo'];
+                    }
+                }
+            }
+
+            for ($i = 0; $i < count($projects); $i++){
+                for ($x = 0; $i < count($clients); $i++){
+                    if ($projects[$i]['client_id'] == $clients[$x]['id']){
+                        if($clients[$x]['total'] > $clients[$x]['limiet']){
+                            $projects[$i]['shouldWork'] = false;
+                        }else{
+                            $projects[$i]['shouldWork'] = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
         return view('projects/projects')->with('projects', $projects);
     }
 
