@@ -17,6 +17,9 @@
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
                             <li><a href="{{ action('projectsController@index') }}">Project list</a></li>
                         @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales')
+                            <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -27,7 +30,6 @@
 @section('content')
     <div class="title">
         <h1 id="ptitle">Add Project</h1>
-
     </div>
     <div class="wrapper">
         <div class="addclientbox">

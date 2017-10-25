@@ -27,18 +27,18 @@ class projectsController extends Controller
     {
         $projects = \App\Project::all();
 
-        return view('development/projects')->with('projects', $projects);
+        return view('projects/projects')->with('projects', $projects);
     }
 
     public function show($id)
     {
         $projects = \App\Project::find($id);
-        return view('development/project')->with('projects', $projects);
+        return view('projects/project')->with('projects', $projects);
     }
 
     public function create()
     {
-        return view('development/create');
+        return view('projects/create');
     }
 
     public function store(Request $request)
@@ -62,6 +62,6 @@ class projectsController extends Controller
     }
 
     public function createProject($client_id){
-        return view('development/create')->with('client_id', $client_id);
+        return view('projects/create')->with('client_id', $client_id);
     }
 }

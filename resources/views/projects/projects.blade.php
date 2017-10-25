@@ -41,7 +41,7 @@
                         <p>Project name</p>
                     </div>
                     <script src="{{ URL::asset('js/searchFilters.js') }}"></script>
-                    <input type="text" id="clientSearch" onkeyup="clientSearch()" placeholder="Search for client..">
+                    <input type="text" id="projectSearch" onkeyup="projectSearch()" placeholder="Search for project..">
                     <div class="projectbutton">
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == "Sales")
                         <a href="{{ action('projectsController@create') }}">Add project</a>
@@ -53,24 +53,30 @@
                     @foreach($projects as $project)
                     <li class="projectbox">
                         <div class="projectname">
-                            <p>Project id:{{ $project['project_id'] }}</p>
+                            <h3>Project name:</h3>
+                            <p>{{ $project['project_name'] }}</p>
                         </div>
                         <div class="projectname">
-                            <p>Project name:{{ $project['project_name'] }}</p>
+                            <h3>Project id:</h3>
+                            <p>{{ $project['project_id'] }}</p>
                         </div>
                         <div class="projectname">
-                            <p>Client id:{{ $project['client_id'] }}</p>
+                            <h3>Client id:</h3>
+                            <p>{{ $project['client_id'] }}</p>
                         </div>
                         <div class="projectname">
-                            <p>Operating system:{{ $project['operating system'] }}</p>
+                            <h3>Operating system:</h3>
+                            <p>{{ $project['operating system'] }}</p>
                         </div>
                         @if(true)
                             <div class="projectstatusGood">
-                                <p>Work status: Keep on working</p>
+                                <h3>Work status: </h3>
+                                <p>Keep on working</p>
                             </div>
                         @else
                             <div class="projectstatusBad">
-                                <p>Work status: Stop working</p>
+                                <h3>Work status: </h3>
+                                <p>Stop working</p>
                             </div>
                         @endif
                         <div class="projectbutton">
