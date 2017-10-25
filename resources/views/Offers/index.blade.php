@@ -39,9 +39,6 @@
                 <div id="clientName">
                     <p>client name</p>
                 </div>
-                <div class="BankNumber">
-                    <p>Bank number</p>
-                </div>
                 <div class="OfferAmount">
                     <p>Amount offers</p>
                 </div>
@@ -54,22 +51,14 @@
                 <div class="details">
 
                 </div>
-                <div class="create">
-
-                </div>
+                <script src="{{ URL::asset('js/searchFilters.js') }}"></script>
+                <input type="text" id="clientSearch" onkeyup="clientSearch()" placeholder="Search for client..">
             </div>
-            <ul id="offerteList">
+            <ul id="clientlist">
                 @foreach($clients as $client)
-                    <li class="offerteBox">
+                    <li class="clientbox">
                         <div class="client_name">
                             <p>{{$client->company_name}}</p>
-                        </div>
-                        <div class="bankNumber">
-                            @if(!$client->offers->isEmpty())
-                                <p>{{$client->offers[0]['debiteurgegevens']}}</p>
-                            @else
-                                <p>0</p>
-                            @endif
                         </div>
                         <div class="offerAmount">
                             <p>{{$client->offers->count()}}</p>
