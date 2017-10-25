@@ -17,10 +17,12 @@ class pagesController extends Controller
     }
 
     public function CheckHome(){
-        if (Auth::user()['username'] == "Sales" || Auth::user()['username'] == "Finance"){
+        if (Auth::user()['username'] == "Sales"){
             return redirect('/clients');
-        }else if(Auth::user()['username'] == "Development"){
+        }else if(Auth::user()['username'] == "Development") {
             return redirect('/projects');
+        }else if(Auth::user()['username'] == "Finance"){
+            return redirect('/offers');
         }else{
             return redirect('/logout');
         }
