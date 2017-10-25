@@ -10,6 +10,9 @@
             <div class="wrapper">
                 <nav>
                     <ul>
+                        @if(isset(\Illuminate\Support\Facades\Auth::user()['username']))
+                            <li><p>{{\Illuminate\Support\Facades\Auth::user()['username']}}</p></li>
+                        @endif
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Development')
                             <li><a href="{{ action('projectsController@index') }}">Project list</a></li>

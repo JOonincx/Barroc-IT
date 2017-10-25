@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Auth;
 
 class clientsController extends Controller
 {
@@ -12,7 +13,7 @@ class clientsController extends Controller
 
         if(isset(Auth::user()['username'])){
             if(Auth::user()['username'] == 'Development'){
-                redirect('/checkhome');
+                view('/checkhome');
             }
         }
     }
