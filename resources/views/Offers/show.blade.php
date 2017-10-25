@@ -19,6 +19,9 @@
                         @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Sales' || \Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
                             <li><a href="{{ action('clientsController@index') }}">Client list</a></li>
                         @endif
+                        @if(\Illuminate\Support\Facades\Auth::user()['username'] == 'Finance')
+                            <li><a href="{{ action('offersController@index') }}">Offer list</a></li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -34,9 +37,9 @@
                 @if($client['id'] == $offer->client_id)
                     <table>
                         <tr>
+                            <th>Project_id</th>
                             <th>Offerte_id</th>
                             <th>Offerte_status</th>
-                            <th>Prospect</th>
                             <th>Sales_percentage</th>
                             <th>Creditworthy</th>
                             <th>Crediteurengegevens</th>
@@ -44,9 +47,9 @@
                             <th>Saldo</th>
                         </tr>
                         <tr>
+                            <td>{{$offer['project_id']}}</td>
                             <td>{{$offer['offerte_id']}}</td>
                             <td>@if($offer['offerte_status'] == 1) Finished @elseif($offer['offerte_status'] == 0) Ongoing @endif</td>
-                            <td>{{$offer['prospect']}}</td>
                             <td>{{$offer['sales_percentage']}}</td>
                             <td>@if($offer['creditworthy'] == 1) Yes @elseif($offer['creditworthy'] == 0) No @endif</td>
                             <td>{{$offer['crediteurengegevens']}}</td>
